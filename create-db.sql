@@ -1,1 +1,0 @@
-create database jira_db character set utf8 collate utf8_bin;
