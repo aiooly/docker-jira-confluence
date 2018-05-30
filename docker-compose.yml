@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - './mysqlconf:/etc/mysql/conf.d/'
+      - './mysqldata:/var/lib/mysql'
+  jira:
+    image: daocloud.io/marcus_li/jira:latest
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysql
+  confluence:
+    image: daocloud.io/marcus_li/confluence:latest
+    ports:
+      - '8090:8090'
+      - '8091:8091'
+    depends_on:
+    - mysql
