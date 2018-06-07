@@ -7,16 +7,19 @@ services:
     volumes:
       - './mysqlconf:/etc/mysql/conf.d/'
       - './mysqldata:/var/lib/mysql'
+    network_mode: "host"
   jira:
     image: daocloud.io/marcus_li/jira:latest
-    ports:
-      - '8080:8080'
+    #ports:
+    #  - '8080:8080'
     depends_on:
       - mysql
+    network_mode: "host"
   confluence:
     image: daocloud.io/marcus_li/confluence:latest
-    ports:
-      - '8090:8090'
-      - '8091:8091'
+    #ports:
+    #  - '8090:8090'
+    #  - '8091:8091'
     depends_on:
-    - mysql
+      - mysql
+    network_mode: "host"
