@@ -5,8 +5,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - './mysqlconf:/etc/mysql/conf.d/'
-      - './mysqldata:/var/lib/mysql'
+      - './mysqlconf:/etc/mysql/conf.d/:rw'
+      - './mysqldata:/var/lib/mysql:rw'
       - '/etc/localtime:/etc/localtime:ro'
       - '/etc/timezone:/etc/timezone:ro'
     network_mode: "host"
