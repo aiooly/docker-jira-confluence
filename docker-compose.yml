@@ -15,15 +15,9 @@ services:
     depends_on:
       - mysql
     network_mode: "host"
-    volumes:
-      - './jira/home:/var/atlassian/jira'
-      - './jira/logs:/opt/atlassian/jira/logs'
   confluence:
     image: daocloud.io/marcus_li/confluence:latest
     depends_on:
       - mysql
     network_mode: "host"
-    volumes:
-      - './confluence/home:/var/atlassian/confluence'
-      - './confluence/logs:/opt/atlassian/confluence/logs'
 
